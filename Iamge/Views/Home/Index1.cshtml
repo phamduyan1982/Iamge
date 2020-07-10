@@ -1,0 +1,29 @@
+﻿@model IEnumerable<Iamge.Brand>
+
+@{
+    ViewBag.Title = "Index1";
+}
+
+<h2>Index1</h2>
+<table border="1">
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+
+                @if (item.BrandImage != null)
+                {
+                    var base64 = Convert.ToBase64String(item.BrandImage);
+                    var imgsrc = string.Format("data:image/gif;base64,{0}", base64);
+
+                    <img src="@imgsrc" style="max-width:100px; max-height:100px" />
+                }
+
+            </td>
+        </tr>
+    }
+
+
+</table>
+
